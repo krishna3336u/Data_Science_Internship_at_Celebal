@@ -1,22 +1,26 @@
 import streamlit as st
 import pandas as pd
+import numpy as np
 import joblib
 import plotly.express as px
-from sklearn.preprocessing import StandardScaler
+from pathlib import Path
 
 # Page Configuration
 st.set_page_config(page_title="Customer Intelligence System", layout="wide", page_icon="📊")
 
+# Base directory = folder where app.py is present
+BASE_DIR = Path(__file__).resolve().parent
+
 # Load Models and Data
 @st.cache_resource
 def load_models():
-    scaler = joblib.load('models/scaler.pkl')
-    kmeans = joblib.load('models/kmeans_model.pkl')
-    model = joblib.load('models/final_model.pkl')      # Stacking model from Phase 4
+    scaler = joblib.load(BASE_DIR / "models" / "scaler.pkl")
+    kmeans = joblib.load(BASE_DIR / "models" / "kmeans_model.pkl")
+    model = joblib.load(BASE_DIR / "models" / "final_model.pkl")
     return scaler, kmeans, model
 
 scaler, kmeans, model = load_models()
-df = pd.read_csv('data/Country-data.csv')
+df = pd.read_csv(BASE_DIR / "data" / "Country-data.csv")
 
 # ===================== SIDEBAR =====================
 st.sidebar.title("Customer Intelligence System")
@@ -162,7 +166,7 @@ elif page == "🔮 Predict Segment":
 
     # ---------- Debug button (separate, correct indentation) ----------
     if st.button("Debug: predictions on dataset"):
-        df_debug = pd.read_csv("data/Country-data.csv")
+        df_debug = pd.read_csv(BASE_DIR / "data" / "Country-data.csv")
         df_debug.columns = df_debug.columns.astype(str).str.strip().str.lower()
 
         # Build X_debug
@@ -192,15 +196,10 @@ elif page == "💡 Insights & Recommendations":
 
     st.header("Insights & Recommendations")
 
-    from pathlib import Path
-    import pandas as pd
-    import numpy as np
-    import joblib
-
-    # Paths (change DATA_PATH if your filename differs)
-    DATA_PATH = Path("data/Country-data.csv")
-    KMEANS_PATH = Path("models/kmeans_model.pkl")
-    SCALER_PATH = Path("models/scaler.pkl")
+    # Paths for Streamlit Cloud
+    DATA_PATH = BASE_DIR / "data" / "Country-data.csv"
+    KMEANS_PATH = BASE_DIR / "models" / "kmeans_model.pkl"
+    SCALER_PATH = BASE_DIR / "models" / "scaler.pkl"
 
     if not DATA_PATH.exists():
         st.error(f"Dataset not found at: {DATA_PATH}")
