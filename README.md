@@ -1,5 +1,6 @@
 # Data Science Internship at Celebal Technologies
 🌐 **Live Streamlit App (Week 3):** [Customer Intelligence System](https://datascienceinternshipatcelebal-kgrbh7wytrbxd4mcawhqne.streamlit.app/)
+
 This repository contains all assignments and projects completed during the Data Science Internship Program.
 
 ## Assignments
