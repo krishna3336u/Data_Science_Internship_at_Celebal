@@ -24,6 +24,14 @@ Topics:
 - Hyperparameter Tuning
 - Time Series Forecasting
 - Notebook: week2_krishna_singh_pce (1).ipynb
+- ## Week 4 - Intro to Deep Learning
+
+Assignment: Build an image classification model on CIFAR-10 (ANN vs CNN)
+
+- Folder: [CEI-DS-week4-assignment-Krishna-Singh-PCE](./CEI-DS-week4-assignment-Krishna-Singh-PCE)
+- Main Notebook: [CIFAR10_ANN_CNN_Complete.ipynb](./CEI-DS-week4-assignment-Krishna-Singh-PCE/CIFAR10_ANN_CNN_Complete.ipynb)
+- Original Resource Notebook: [Resources_Original_Notebook.ipynb](./CEI-DS-week4-assignment-Krishna-Singh-PCE/Resources_Original_Notebook.ipynb)
+- Key Learning: Understood why CNN outperforms ANN on image data using Convolution, Pooling, BatchNorm, Dropout and Data Augmentation.
 
 ## Author
 Krishna Singh
