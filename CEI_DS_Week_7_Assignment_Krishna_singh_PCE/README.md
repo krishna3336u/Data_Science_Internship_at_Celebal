@@ -30,5 +30,5 @@ Here is how the system performs when querying my resume:
 ![Skills Answer](./outputs/ml_algorithms_question.png)
 
 ### Query: "gives project names which krishna create?"
-![Experience Answer](./outputss/project_question.png)
+![Experience Answer](./outputs/project_question.png)
 
